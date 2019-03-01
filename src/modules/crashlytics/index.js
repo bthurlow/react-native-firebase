@@ -45,6 +45,16 @@ export default class Crashlytics extends ModuleBase {
   }
 
   /**
+   * Logs a custom non fatal exception.
+   * @param {string} name
+   * @param {string} reason
+   * @param {Object[]} stack Optional
+   */
+  recordCustomError(name, reason, stack){
+    getNativeModule(this).recordCustomError(name,reason,stack || []);
+  }
+
+  /**
    * Set a boolean value to show alongside any subsequent crash reports.
    */
   setBoolValue(key: string, value: boolean): void {
